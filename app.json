@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "bashbop-app",
-    "slug": "bashbop-app",
+    "name": "Bashbop",
+    "slug": "bashbop",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -10,14 +10,14 @@
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.bashbop.bashbopapp"
+      "bundleIdentifier": "com.bashbop.connect"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.bashbop.bashbopapp"
+      "package": "com.bashbop.connect"
     },
     "web": {
       "bundler": "metro",
@@ -32,7 +32,7 @@
           "image": "./assets/images/splash-icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff"
+          "backgroundColor": "#ffff01"
         }
       ]
     ],
