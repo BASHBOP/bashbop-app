@@ -1,21 +1,27 @@
-import { Text, View,  StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native'
+import React from 'react'
 
-export default function Index() {
+const index = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home screen</Text>
+    <View style={style.container}>
+      <Text style={style.text}>WELCOME TO BASHBOP</Text>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
+export default index
+
+const style = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#25292e',
-    alignItems: 'center',
+    flexDirection: 'column',
     justifyContent: 'center',
+    alignItems: 'center'
   },
   text: {
-    color: '#fff',
-  },
-});
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    textAlign: 'center'
+  }
+})
