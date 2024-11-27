@@ -38,6 +38,12 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "533932a6-4fdb-43f9-bdcb-6037a3e0f192"
+      }
+    },
+    "owner": "bashbop"
   }
 }
