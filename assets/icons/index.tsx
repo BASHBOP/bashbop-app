@@ -1,10 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Home from './home'
-import { Colors } from '@/constants/Colors'
+import { Colors } from 'react-native/Libraries/NewAppScreen'
+
+import Login from './Login'
+import Home from './Home'
 
 const icons: { [key: string]: React.ComponentType<any> } = {
-   home: Home,
+   login: Login,
+   home: Home
 }
 
 const Icon = ({ name, size, color, strokeWidth, ...props }: { name: string, size?: number, color: string, strokeWidth?: number }) => {
@@ -22,7 +25,7 @@ const Icon = ({ name, size, color, strokeWidth, ...props }: { name: string, size
          height={size || 24}
          width={size || 24}
          strokeWidth={strokeWidth || 1.9}
-         color={color || 'black'}
+         color={color || Colors.light.tint}
          {...props}
       />)
 
