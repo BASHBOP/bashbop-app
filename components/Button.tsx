@@ -3,6 +3,7 @@ import React from 'react'
 import { Colors } from '@/constants/Colors';
 import { heightPercentage } from '@/helpers/Common';
 import Loading from './Loading';
+import { theme } from '@/constants/theme';
 
 const Button = (
    {
@@ -54,12 +55,12 @@ export default Button
 
 const styles = StyleSheet.create({
    button: {
-      backgroundColor: Colors.light.background,
+      backgroundColor: theme.colors.primary,
       height: heightPercentage(6.6),
       justifyContent: 'center',
       alignItems: 'center',
       borderCurve: 'continuous',
-      borderRadius: 18,
+      borderRadius: theme.radius.xs,
    },
    text: {
       color: '#000',

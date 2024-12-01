@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import { Colors } from "@/constants/Colors";
+import { theme } from "@/constants/theme";
 import { heightPercentage, widthPercentage } from "@/helpers/Common";
 import { useRouter } from "expo-router";
 import { StatusBar, Text, View, StyleSheet, Image, Pressable } from "react-native";
@@ -91,7 +92,7 @@ const styles = StyleSheet.create({
    },
    loginText: {
       textAlign: 'center',
-      color: Colors.light.text,
+      color: theme.colors.text,
       fontSize: heightPercentage(1.6)
    }
 });

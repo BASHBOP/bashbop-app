@@ -4,10 +4,14 @@ import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 import Login from './Login'
 import Home from './Home'
+import Logout from './Logout'
+import ArrowLeft from './ArrowLeft'
 
 const icons: { [key: string]: React.ComponentType<any> } = {
+   home: Home,
    login: Login,
-   home: Home
+   logout: Logout,
+   arrowLeft: ArrowLeft
 }
 
 const Icon = ({ name, size, color, strokeWidth, ...props }: { name: string, size?: number, color: string, strokeWidth?: number }) => {
