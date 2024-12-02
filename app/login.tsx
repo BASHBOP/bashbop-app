@@ -1,5 +1,5 @@
-import { StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useRef } from 'react'
+import { Alert, Pressable, StatusBar, StyleSheet, Text, TextInput, View } from 'react-native'
+import React, { useRef, useState } from 'react'
 
 import Icon from '@/assets/icons'
 import BackButton from '@/components/BackButton'
@@ -15,9 +15,15 @@ const Login = () => {
 
   const emailRef = useRef<string | null>(null);
   const passwordRef = useRef<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  const onSubmit =() => {
-
+  const onSubmit = () => {
+    //validate login
+    if (!emailRef.current || !passwordRef.current) {
+      Alert.alert('Login', 'all fields are required')
+      return
+    }
+    setLoading(true)
   }
 
   return (
@@ -58,11 +64,19 @@ const Login = () => {
             Forgot password?
           </Text>
 
-          <Button
-            title="Login"
-            onPress={onSubmit}
+          <Button title="Login" onPress={onSubmit} loading={loading} />
 
-          />
+          {/* footer */}
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>
+              Don't have account?
+            </Text>
+            <Pressable
+              onPress={() => router.push('/signUp')}
+            >
+              <Text style={[styles.footerText, { color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold as 'medium' }]}>Sign up</Text>
+            </Pressable>
+          </View>
         </View>
       </View>
     </ScreenWrapper>
