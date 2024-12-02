@@ -42,7 +42,6 @@ const Welcome = () => {
                >
                   <Text style={[styles.loginText, { color: Colors.light.tint, fontWeight: '600' }]}> Login</Text>
                </Pressable>
-
             </View>
          </View>
       </ScreenWrapper>

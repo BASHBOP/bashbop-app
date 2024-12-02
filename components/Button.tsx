@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       borderCurve: 'continuous',
-      borderRadius: theme.radius.xs,
+      borderRadius: theme.radius.xl,
    },
    text: {
       color: '#000',
