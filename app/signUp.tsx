@@ -9,21 +9,33 @@ import { heightPercentage, widthPercentage } from '@/helpers/Common'
 import { theme } from '@/constants/theme'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
+import { login, signUp } from '@/api/api'
 
 const SignUp = () => {
   const router = useRouter();
 
+  const nameRef = useRef<string | null>(null);
   const emailRef = useRef<string | null>(null);
   const passwordRef = useRef<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = () => {
+  const onSubmit =async () => {
     //validate login
-    if (!emailRef.current || !passwordRef.current) {
+    if (!nameRef.current || !emailRef.current || !passwordRef.current) {
+      console.log(nameRef.current, emailRef.current, passwordRef.current)
       Alert.alert('SignUp', 'all fields are required')
       return
     }
-    setLoading(true)
+
+    const name = nameRef.current.trim();
+    const email = emailRef.current.trim();
+    const password = passwordRef.current.trim();
+
+    setLoading(true);
+
+    const res = await signUp(name, email, password);
+    setLoading(false);
+    console.log(res.data);
   }
 
   return (
@@ -51,7 +63,7 @@ const SignUp = () => {
           <Input
             icon={<Icon name="mail" size={26} strokeWidth={1.6} />}
             placeholder='Enter your name'
-            onChangeText={value=> emailRef.current = value}
+            onChangeText={value=> nameRef.current = value}
           />
 
           <Input

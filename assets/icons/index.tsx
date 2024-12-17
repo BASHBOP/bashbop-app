@@ -1,14 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 import Login from './Login'
-import Home from './Home'
 import Logout from './Logout'
 import ArrowLeft from './ArrowLeft'
 import Mail from './Mail'
 import { theme } from '@/constants/theme'
 import Lock from './Lock'
+import Home from './home'
 
 const icons: { [key: string]: React.ComponentType<any> } = {
    home: Home,
