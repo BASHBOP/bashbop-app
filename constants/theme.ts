@@ -1,3 +1,17 @@
+type ThemeColors = {
+   primary: string;
+   primaryDark: string;
+   dark: string;
+   darkLight: string;
+   gray: string;
+   text: string;
+   textLight: string;
+   textDark: string;
+   rose: string;
+   roseLight: string;
+   disabled: string;
+}
+
 export const theme = {
    colors: {
       primary: '#FFFF01',
@@ -10,7 +24,8 @@ export const theme = {
       textDark: '#1D1D1D',
       rose: '#ef4444',
       roseLight: '#f87171',
-   },
+      disabled: '#CCCCCC',
+   } as ThemeColors,
    fonts: {
       medium: '500',
       semibold: '600',

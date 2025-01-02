@@ -47,3 +47,4 @@ android/
 .env 
 
 .yarn/cache/*
+.yarn/install-state.gz

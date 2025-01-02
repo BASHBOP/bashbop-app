@@ -27,7 +27,9 @@ const Login = () => {
     setLoading(true)
     login(emailRef.current, passwordRef.current).then(res => {
       setLoading(false)
-      console.log(res.data)
+      // style console.log
+      console.table([res.data])
+      router.push('/')
     });
   }
 

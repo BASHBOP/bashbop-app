@@ -3197,6 +3197,7 @@ __metadata:
     "@types/react-test-renderer": ^18.3.0
     axios: ^1.7.8
     expo: ~52.0.7
+    expo-barcode-scanner: ~12.9.3
     expo-blur: ~14.0.1
     expo-constants: ~17.0.3
     expo-font: ~13.0.1
@@ -4558,6 +4559,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"expo-barcode-scanner@npm:~12.9.3":
+  version: 12.9.3
+  resolution: "expo-barcode-scanner@npm:12.9.3"
+  dependencies:
+    expo-image-loader: ~4.6.0
+  peerDependencies:
+    expo: "*"
+  checksum: a07fe72431ca56598d68888cc1afeb7c9e6c55a69220ddb9f4bcbb4c22e80df5bd3f657dcec00066b916078eaf9697db34f44cfd86dd18f825b0c2d594afcaa7
+  languageName: node
+  linkType: hard
+
 "expo-blur@npm:~14.0.1":
   version: 14.0.1
   resolution: "expo-blur@npm:14.0.1"
@@ -4612,6 +4624,15 @@ __metadata:
   peerDependencies:
     expo: "*"
   checksum: c4fec86f6c57c5b8d6ab0e19dff43bcffa2abdf37dbb785d4498e834ac2187ea2e4ea52e12f156ec1e8b02b8888b0aa055cd7ca033da520c67ce0159f88074d4
+  languageName: node
+  linkType: hard
+
+"expo-image-loader@npm:~4.6.0":
+  version: 4.6.0
+  resolution: "expo-image-loader@npm:4.6.0"
+  peerDependencies:
+    expo: "*"
+  checksum: 02981667f03dc429cd9db37e0acc302e4a0c4bb5875dc087b1c26388ef64563481e52dddc1d42dd32794eb7051d1acf5bc0c078413469c29025a02d4d4af1154
   languageName: node
   linkType: hard
 
