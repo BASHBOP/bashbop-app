@@ -1,4 +1,6 @@
 type ThemeColors = {
+   success: any;
+   error: any;
    primary: string;
    primaryDark: string;
    dark: string;

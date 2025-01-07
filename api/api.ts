@@ -12,7 +12,7 @@ interface LoginResponse {
    };
 }
 
-const axiosInstance = axios.create({
+export const axiosInstance = axios.create({
    baseURL: BASE_URL,
    withCredentials: true,
    headers: {
