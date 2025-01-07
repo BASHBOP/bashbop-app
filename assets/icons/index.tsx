@@ -1,14 +1,17 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Colors } from 'react-native/Libraries/NewAppScreen'
 
 import Login from './Login'
-import Home from './Home'
 import Logout from './Logout'
 import ArrowLeft from './ArrowLeft'
 import Mail from './Mail'
 import { theme } from '@/constants/theme'
 import Lock from './Lock'
+import Home from './home'
+import Calendar from './Calendar'
+import Location from './Location'
+import Ticket from './Ticket'
+import Search from './Search'
 
 const icons: { [key: string]: React.ComponentType<any> } = {
    home: Home,
@@ -16,7 +19,11 @@ const icons: { [key: string]: React.ComponentType<any> } = {
    logout: Logout,
    arrowLeft: ArrowLeft,
    mail: Mail,
-   lock: Lock
+   lock: Lock,
+   calendar: Calendar,
+   location: Location,
+   ticket: Ticket,
+   search: Search
 }
 
 const Icon = ({ name, size, color, strokeWidth, ...props }: { name: string, size?: number, color?: string, strokeWidth?: number }) => {

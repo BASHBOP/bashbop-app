@@ -1,16 +1,16 @@
-import { View, Text, Button } from 'react-native'
-import React from 'react'
-import { useRouter } from 'expo-router'
-import ScreenWrapper from '@/components/ScreenWrapper'
+import { Redirect } from 'expo-router';
+import { useAuth } from '@/hooks/useAuth';
 
-const Index = () => {
-  const router = useRouter()
-  return (
-    <ScreenWrapper>
-      <Text>index</Text>
-      <Button title="Go to Welcome" onPress={() => router.push('/welcome')} />
-    </ScreenWrapper>
-  )
+export default function Index() {
+  const { isAuthenticated, isLoading } = useAuth();
+
+    if (isLoading) {
+    return null; // Or a loading screen
+    }
+  
+  if (!isAuthenticated) {
+    return <Redirect href="/welcome" />;
+  }
+
+  return <Redirect href="/(tabs)/events" />;
 }
-
-export default Index

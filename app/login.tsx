@@ -9,6 +9,7 @@ import { heightPercentage, widthPercentage } from '@/helpers/Common'
 import { theme } from '@/constants/theme'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
+import { login } from '@/api/api'
 
 const Login = () => {
   const router = useRouter();
@@ -24,6 +25,12 @@ const Login = () => {
       return
     }
     setLoading(true)
+    login(emailRef.current, passwordRef.current).then(res => {
+      setLoading(false)
+      // style console.log
+      console.table([res.data])
+      router.push('/')
+    });
   }
 
   return (
@@ -47,6 +54,7 @@ const Login = () => {
           >
             Please login to continue
           </Text>
+                {/* {errors.email && <Text style={styles.error}>{errors.email.message}</Text>} */}
           <Input
             icon={<Icon name="mail" size={26} strokeWidth={1.6} />}
             placeholder='Enter your email'

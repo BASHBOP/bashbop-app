@@ -19,7 +19,7 @@ const Welcome = () => {
 
             {/* title */}
             <View style={{ gap: 20 }}>
-               <Text style={styles.title}>BASHBOP!</Text>
+              <Image source={require('../assets/images/logo.png')} style={styles.logo} resizeMode='contain' />
                <Text style={styles.slugan}>
                   Simplifying events, amplifying experiences.
                </Text>
@@ -74,6 +74,10 @@ const styles = StyleSheet.create({
    welcomeImage: {
       height: heightPercentage(30),
       width: widthPercentage(100),
+      alignSelf: 'center',
+   },
+   logo: {
+      width: widthPercentage(60),
       alignSelf: 'center',
    },
    footer: {
