@@ -9,21 +9,30 @@ import { heightPercentage, widthPercentage } from '@/helpers/Common'
 import { theme } from '@/constants/theme'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
+import { useAuth } from '@/hooks/useAuth'
 
 const Login = () => {
   const router = useRouter();
-
+  const { login } = useAuth();
   const emailRef = useRef<string | null>(null);
   const passwordRef = useRef<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = () => {
-    //validate login
+  const onSubmit = async () => {
     if (!emailRef.current || !passwordRef.current) {
-      Alert.alert('Login', 'all fields are required')
+      Alert.alert('Login', 'All fields are required')
       return
     }
+
     setLoading(true)
+    try {
+      await login(emailRef.current, passwordRef.current);
+      // No need to navigate - useAuth will handle that through _layout.tsx
+    } catch (error: any) {
+      Alert.alert('Login Failed', error.message || 'Please check your credentials and try again');
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -47,6 +56,7 @@ const Login = () => {
           >
             Please login to continue
           </Text>
+                {/* {errors.email && <Text style={styles.error}>{errors.email.message}</Text>} */}
           <Input
             icon={<Icon name="mail" size={26} strokeWidth={1.6} />}
             placeholder='Enter your email'

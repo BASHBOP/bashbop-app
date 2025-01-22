@@ -39,16 +39,34 @@
           "resizeMode": "contain",
           "backgroundColor": "#000000"
         }
-      ]
+      ],
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow BashBop Scanner to access camera."
+        }
+      ],
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow BashBop Scanner to access your camera for scanning tickets."
+        }
+      ],
+      "expo-haptics",
+      "expo-image-picker"
     ],
     "experiments": {
       "typedRoutes": true
     },
     "extra": {
       "eas": {
-        "projectId": "533932a6-4fdb-43f9-bdcb-6037a3e0f192"
+        "projectId": "your-project-id"
       }
     },
-    "owner": "bashbop"
+    "owner": "bashbop",
+    "updates": {
+      "fallbackToCacheTimeout": 0,
+      "url": "https://u.expo.dev/your-project-id"
+    }
   }
 }
