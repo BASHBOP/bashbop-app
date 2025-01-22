@@ -6,12 +6,58 @@ import BackButton from '@/components/BackButton'
 import { useRouter } from 'expo-router'
 import ScreenWrapper from '@/components/ScreenWrapper'
 import { heightPercentage, widthPercentage } from '@/helpers/Common'
-import { theme } from '@/constants/theme'
+import { useTheme } from '@/context/ThemeContext'
+import { getTheme } from '@/constants/theme'
 import Input from '@/components/Input'
 import Button from '@/components/Button'
 
+const getStyles = (theme: ReturnType<typeof getTheme>) => StyleSheet.create({
+  container: {
+    flex: 1,
+    gap: 45,
+    paddingHorizontal: widthPercentage(5)
+  },
+  welcomeText: {
+    fontSize: heightPercentage(4),
+    fontWeight: 'bold',
+    color: theme.colors.text,
+  },
+  form: {
+    gap: 25
+  },
+  formText: {
+    fontSize: heightPercentage(1.5),
+    color: theme.colors.text
+  },
+  forgotPassword: {
+    textAlign: 'right',
+    fontWeight: '600',
+    color: theme.colors.text,
+  },  
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: 5
+  },
+  footerText: {
+    textAlign: 'center',
+    color: theme.colors.text,
+    fontSize: heightPercentage(1.6)
+  },
+  signUpText: {
+    textAlign: 'center',
+    color: theme.colors.primaryDark,
+    fontSize: heightPercentage(1.6),
+    fontWeight: '600'
+  }
+});
+
 const Login = () => {
   const router = useRouter();
+  const { isDark } = useTheme();
+  const theme = getTheme(isDark);
+  const styles = getStyles(theme);
 
   const emailRef = useRef<string | null>(null);
   const passwordRef = useRef<string | null>(null);
@@ -40,11 +86,7 @@ const Login = () => {
 
         {/* form */}
         <View style={styles.form}>
-          <Text
-            style={{
-              fontSize: heightPercentage(1.5), color: theme.colors.text
-            }}
-          >
+          <Text style={styles.formText}>
             Please login to continue
           </Text>
           <Input
@@ -74,7 +116,7 @@ const Login = () => {
             <Pressable
               onPress={() => router.push('/signUp')}
             >
-              <Text style={[styles.footerText, { color: theme.colors.primaryDark, fontWeight: theme.fonts.semibold as 'medium' }]}>Sign up</Text>
+              <Text style={styles.signUpText}>Sign up</Text>
             </Pressable>
           </View>
         </View>
@@ -84,35 +126,3 @@ const Login = () => {
 }
 
 export default Login
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    gap: 45,
-    paddingHorizontal: widthPercentage(5)
-  },
-  welcomeText: {
-    fontSize: heightPercentage(4),
-    fontWeight: theme.fonts.bold as 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
-    color: theme.colors.text,
-  },
-  form: {
-    gap: 25
-  },
-  forgotPassword: {
-    textAlign: 'right',
-    fontWeight: theme.fonts.semibold as 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
-    color: theme.colors.text,
-  },  
-  footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    gap: 5
-  },
-  footerText: {
-    textAlign: 'center',
-    color: theme.colors.text,
-    fontSize: heightPercentage(1.6)
-  }
-})

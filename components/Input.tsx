@@ -1,6 +1,7 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
-import { theme } from '@/constants/theme'
+import { getTheme } from '@/constants/theme'
+import { useTheme } from '@/context/ThemeContext'
 import { heightPercentage } from '@/helpers/Common'
 
 import { TextInputProps } from 'react-native';
@@ -12,25 +13,11 @@ interface InputProps extends TextInputProps {
 }
 
 const Input = (props: InputProps) => {
-  return (
-    <View style={[styles.container, props.containerStyles]}>
-        {
-           props.icon
-        }
-        <TextInput
-           style={{ flex: 1 }}
-           placeholderTextColor={theme.colors.textLight}
-           ref={props.inputRef}
-           {...props}
-        />
-    </View>
-  )
-}
-
-export default Input
-
-const styles = StyleSheet.create({
-   container: {
+  const { isDark } = useTheme();
+  const theme = getTheme(isDark);
+  
+  const styles = StyleSheet.create({
+    container: {
       flexDirection: 'row',
       height: heightPercentage(7.2),
       alignItems: 'center',
@@ -41,5 +28,20 @@ const styles = StyleSheet.create({
       borderCurve: 'continuous',
       paddingHorizontal: 18,
       gap: 12
-   }
-})
+    }
+  });
+
+  return (
+    <View style={[styles.container, props.containerStyles]}>
+      {props.icon}
+      <TextInput
+        style={{ flex: 1 }}
+        placeholderTextColor={theme.colors.textLight}
+        ref={props.inputRef}
+        {...props}
+      />
+    </View>
+  )
+}
+
+export default Input

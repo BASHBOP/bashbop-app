@@ -1,7 +1,8 @@
 import Button from "@/components/Button";
 import ScreenWrapper from "@/components/ScreenWrapper";
 import { Colors } from "@/constants/Colors";
-import { theme } from "@/constants/theme";
+import { useTheme } from "@/context/ThemeContext";
+import { getTheme } from "@/constants/theme";
 import { heightPercentage, widthPercentage } from "@/helpers/Common";
 import { useRouter } from "expo-router";
 import { StatusBar, Text, View, StyleSheet, Image, Pressable } from "react-native";
@@ -9,6 +10,8 @@ import { StatusBar, Text, View, StyleSheet, Image, Pressable } from "react-nativ
 
 const Welcome = () => {
    const router = useRouter();   
+   const { isDark } = useTheme();
+   const theme = getTheme(isDark);
    
    return (
       <ScreenWrapper bg={'#ffffff'}>
@@ -91,7 +94,7 @@ const styles = StyleSheet.create({
    },
    loginText: {
       textAlign: 'center',
-      color: theme.colors.text,
+      color: Colors.light.text,
       fontSize: heightPercentage(1.6)
    }
 });

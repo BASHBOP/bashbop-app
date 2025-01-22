@@ -1,28 +1,46 @@
-export const theme = {
+export const lightTheme = {
    colors: {
-      primary: '#FFFF01',
-      primaryDark: '#00AC62',
-      dark: '#3E3E3E',
-      darkLight: '#E1E1E1',
-      gray: '#E3E3E3',
-      text: '#494949',
-      textLight: '#7C7C7C',
-      textDark: '#1D1D1D',
-      rose: '#ef4444',
-      roseLight: '#f87171',
+      primary: '#FFE600',
+      primaryDark: '#E6CF00',
+      background: '#FFFFFF',
+      text: '#333333',
+      textDark: '#000000',
+      textLight: '#666666',
+      gray: '#E5E5E5',
+      error: '#FF3B30',
+      success: '#34C759',
+      card: 'rgba(255, 255, 255, 0.95)',
+      cardBorder: 'rgba(255, 255, 255, 0.2)',
    },
    fonts: {
+      regular: '400',
       medium: '500',
       semibold: '600',
       bold: '700',
-      extraBold: '800',
    },
    radius: {
-      xs: 10,
-      sm: 12,
-      md: 14,
-      lg: 16,
-      xl: 18,
-      xxl: 22,
+      sm: 4,
+      md: 8,
+      lg: 12,
+      xl: 16,
+      xxl: 24,
    },
 };
+
+export const darkTheme = {
+   ...lightTheme,
+   colors: {
+      ...lightTheme.colors,
+      primary: '#FFE600',
+      primaryDark: '#FFED4D',
+      background: '#000000',
+      text: '#DDDDDD',
+      textDark: '#FFFFFF',
+      textLight: '#999999',
+      gray: '#333333',
+      card: 'rgba(30, 30, 30, 0.95)',
+      cardBorder: 'rgba(255, 255, 255, 0.1)',
+   },
+};
+
+export const getTheme = (isDark: boolean) => isDark ? darkTheme : lightTheme;

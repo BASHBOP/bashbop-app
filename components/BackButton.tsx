@@ -1,28 +1,31 @@
-import { Pressable, StyleSheet } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import Icon from '@/assets/icons'
 import { router } from 'expo-router'
-import { Colors } from '@/constants/Colors'
-import { theme } from '@/constants/theme'
+import { useTheme } from '@/context/ThemeContext'
+import { getTheme } from '@/constants/theme'
 
-const BackButton = ({ size = 26, router }: { size?: number, router: any }) => {
+const BackButton = ({ router }: { router: any }) => {
+  const { isDark } = useTheme()
+  const theme = getTheme(isDark)
+
   return (
-     <Pressable
-        onPress={() => router.back()}
-        style={styles.button}   
-     >
-        <Icon name='arrowLeft' strokeWidth={2.5} size={size} color={theme.colors.text} />
-      </Pressable>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => router.back()}
+    >
+      <Icon name='arrowLeft' size={24} color={theme.colors.text} />
+    </TouchableOpacity>
   )
 }
 
 export default BackButton
 
 const styles = StyleSheet.create({
-   button: {
-      alignSelf: 'flex-start',
-      padding: 5,
-      borderRadius: theme.radius.sm,
-      backgroundColor: 'rgba(0, 0, 0, 0.07)',
-   }
+  container: {
+    alignSelf: 'flex-start',
+    padding: 5,
+    borderRadius: 8,
+    backgroundColor: 'rgba(0, 0, 0, 0.07)'
+  }
 })

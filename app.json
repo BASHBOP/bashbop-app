@@ -25,10 +25,10 @@
       "favicon": "./assets/images/favicon.png"
     },
     "splash": {
-    "image": "./assets/images/splash.png",
-    "resizeMode": "contain",
-    "backgroundColor": "#ffff10"
-  },
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffff10"
+    },
     "plugins": [
       "expo-router",
       [
@@ -39,7 +39,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#000000"
         }
-      ]
+      ],
+      "expo-barcode-scanner"
     ],
     "experiments": {
       "typedRoutes": true

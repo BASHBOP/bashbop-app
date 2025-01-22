@@ -1,17 +1,17 @@
-import { View, Text } from 'react-native'
-import React from 'react'
-import { Stack } from 'expo-router'
+import React from 'react';
+import { Stack } from 'expo-router';
+import { ThemeProvider } from '@/context/ThemeContext';
 
-const _layout = () => {
+const RootLayout = () => {
   return (
-     <Stack
+    <ThemeProvider>
+      <Stack
         screenOptions={{
-        headerShown: false,
-     }}
-     >
-      <Text>_layout</Text>
-    </Stack>
-  )
-}
+          headerShown: false,
+        }}
+      />
+    </ThemeProvider>
+  );
+};
 
-export default _layout
+export default RootLayout;
